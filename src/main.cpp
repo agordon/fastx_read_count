@@ -41,7 +41,43 @@ size_t sequences_in_current_file;
 
 void show_help()
 {
-	cout << "HELP!!!!!" << endl;
+cout <<
+"Fastx Reads Counter  version " PACKAGE_VERSION "\n" \
+"Copyright (C) 2012 A. Gordon (gordon at cshl dot edu)\n" \
+"\n" \
+"This program reads FASTQ/FASTA files and prints the number of reads to STDOUT.\n" \
+"(useful as part of a analysis pipeline shell script)\n" \
+"\n" \
+"Usage: " PACKAGE_NAME " [OPTIONS] FILE1 FILE2 ... FILEn\n" \
+"\n" \
+"FILE - Input file name (multiple files can be specified).\n" \
+"       Use 'stdin' or '-' for STDIN (but don't use it more than once).\n" \
+"\n" \
+"Options:\n" \
+"  -h  --help    -  This helpful help screen.\n" \
+"  --verbose     -  Print progress report (about each file) to STDERR.\n" \
+"\n" \
+"  --fasta       -  Assume FASTA input file(s).\n" \
+"                   The program will abort if FASTQs are detected.\n" \
+"  --fastq       -  Assume FASTQ input file(s).\n" \
+"                   The program will abort if FASTAs are detected.\n" \
+"  --collapsed   -  Assume the READ-IDs are collapsed (coming from 'fastx_colla[ser')\n" \
+"                   The program will abort if the reads aren't valid collapsed IDs (e.g. '>12-20003')\n" \
+"  --nocollapsed -  Ignore collapsed read IDs, count each read as 1.\n" \
+"\n" \
+"NOTE 1:\n" \
+"  By default, the program will detect FASTQ/FASTA files, and collapsed/non-collapsed reads.\n" \
+"  If you wnat to force one or another, use --fastq/--fasta and --collapsed/nocollapsed.\n" \
+"\n" \
+"NOTE 2:\n" \
+"  At the moment, compressed input is not supported. To read compressed files, use:\n" \
+"  $ gzip -dc Sample_R1_*.fastq.gz | " PACKAGE_NAME " stdin\n" \
+"  $ pigz -dc Sample_R1_*.fastq.gz | " PACKAGE_NAME " stdin\n" \
+"  $ bzip2 -dc Sample_R1_*.fastq.bz2 | " PACKAGE_NAME " stdin\n" \
+"  $ pbzip2 -dc Sample_R1_*.fastq.bz2 | " PACKAGE_NAME " stdin\n" \
+"  $ xz -dc Sample_R1_*.fastq.xz | " PACKAGE_NAME " stdin\n" \
+"\n" \
+"\n" ;
 
 }
 
