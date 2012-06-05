@@ -4,3 +4,41 @@ Copyright (C) 2012    A. Gordon (gordon at cshl dot edu)
 
 LICENCE: AGPLv3+
 
+========================================================
+
+Fastx Reads Counter  version 0.1.1
+Copyright (C) 2012 A. Gordon (gordon at cshl dot edu)
+
+This program reads FASTQ/FASTA files and prints the number of reads to STDOUT.
+(useful as part of a analysis pipeline shell script)
+
+Usage: fastx_read_count [OPTIONS] FILE1 FILE2 ... FILEn
+
+FILE - Input file name (multiple files can be specified).
+       Use 'stdin' or '-' for STDIN (but don't use it more than once).
+
+Options:
+  -h  --help    -  This helpful help screen.
+  --verbose     -  Print progress report (about each file) to STDERR.
+
+  --fasta       -  Assume FASTA input file(s).
+                   The program will abort if FASTQs are detected.
+  --fastq       -  Assume FASTQ input file(s).
+                   The program will abort if FASTAs are detected.
+  --collapsed   -  Assume the READ-IDs are collapsed (coming from 'fastx_colla[ser')
+                   The program will abort if the reads aren't valid collapsed IDs (e.g. '>12-20003')
+  --nocollapsed -  Ignore collapsed read IDs, count each read as 1.
+
+NOTE 1:
+  By default, the program will detect FASTQ/FASTA files, and collapsed/non-collapsed reads.
+  If you wnat to force one or another, use --fastq/--fasta and --collapsed/nocollapsed.
+
+NOTE 2:
+  At the moment, compressed input is not supported. To read compressed files, use:
+  $ gzip -dc Sample_R1_*.fastq.gz | fastx_read_count stdin
+  $ pigz -dc Sample_R1_*.fastq.gz | fastx_read_count stdin
+  $ bzip2 -dc Sample_R1_*.fastq.bz2 | fastx_read_count stdin
+  $ pbzip2 -dc Sample_R1_*.fastq.bz2 | fastx_read_count stdin
+  $ xz -dc Sample_R1_*.fastq.xz | fastx_read_count stdin
+
+
