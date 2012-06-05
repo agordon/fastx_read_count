@@ -43,10 +43,10 @@ stamp-h1
 
 
 ## TODO: change this to the name of your binary program
-src/your_new_program
+src/fastx_read_count
 
 ## TODO: change this to the name of your unit-test programs
 tests/test
 
 ## TODO: change this to the name of your package tarball
-your_new_package-*.tar.gz
+fastx_read_count-*.tar.gz

@@ -8,9 +8,9 @@
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-bin_PROGRAMS = your_new_program
+bin_PROGRAMS = fastx_read_count
 
-your_new_program_SOURCES = main.cpp
+fastx_read_count_SOURCES = main.cpp
 
 ## Add the following if you need a boost
 # AM_CPPFLAGS = $(BOOST_CPPFLAGS)
